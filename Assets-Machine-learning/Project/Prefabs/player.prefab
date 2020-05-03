@@ -152,6 +152,7 @@ MonoBehaviour:
   maxSpeed: 4
   inertia: 0.5
   angularSpeed: 90
+  shootRate: 0.5
   bulletPrefab: {fileID: 6460596291224209401, guid: 2a2f89e77c2a2e240987aa8f09e6aabf,
     type: 3}
   bulletSpawner: {fileID: 2021973682822002517}
@@ -190,7 +191,7 @@ MonoBehaviour:
   layerMaskForRaycast:
     serializedVersion: 2
     m_Bits: 55
-  numberOfRaycast: 12
+  numberOfRaycast: 360
 --- !u!114 &2021973683890524024
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,8 +8,11 @@ public class Player : MonoBehaviour {
     public float maxSpeed;
     public float inertia;
     public float angularSpeed;
+    public float shootRate = 0.5f;
     public GameObject bulletPrefab;
     public Transform bulletSpawner;
+
+    private bool canShoot = true;
 
     // Start is called before the first frame update
     private void Start () {
@@ -27,13 +30,8 @@ public class Player : MonoBehaviour {
     }
 
     private void Shoot () {
-        if (shooting) {
-            var bullet = Instantiate (
-                bulletPrefab,
-                bulletSpawner.position,
-                bulletSpawner.rotation
-            );
-            Destroy (bullet, 5);
+        if (shooting && canShoot) {
+            StartCoroutine (FireRate ());
         }
     }
 
@@ -50,6 +48,18 @@ public class Player : MonoBehaviour {
         if (rb.velocity.magnitude > maxSpeed) {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
+    }
+
+    private IEnumerator FireRate () {
+        canShoot = false;
+        var bullet = Instantiate (
+            bulletPrefab,
+            bulletSpawner.position,
+            bulletSpawner.rotation
+        );
+        Destroy (bullet, 5);
+        yield return new WaitForSeconds (shootRate);
+        canShoot = true;
     }
 
 }

@@ -15,13 +15,14 @@ public class ShipPlayer : BotHandler {
     double[, ] lastInputs;
 
     void Update () {
+        var time = Time.deltaTime;
         var inputs = GetInputs ();
         var currentInput = new double[1, numberOfRaycast * 2]; // Sensor info
         for (var i = 0; i < numberOfRaycast; i++) {
             currentInput[0, i] = inputs[0, i];
         }
         for (var i = 0; i < numberOfRaycast; i++) {
-            currentInput[0, i + numberOfRaycast] = lastInputs[0, i];
+            currentInput[0, i + numberOfRaycast] = (lastInputs[0, i] - inputs[0, i]) * time;
         }
         lastInputs = inputs;
         var output = nb.SetInput (currentInput); //Feed forward
@@ -29,13 +30,8 @@ public class ShipPlayer : BotHandler {
         cs.vertical = Mathf.Clamp (cs.vertical, -1, 1);
         cs.horizontal = (float) output[0, 1];
         cs.horizontal = Mathf.Clamp (cs.horizontal, -1, 1);
-        if (output[0, 2] > 0.5) {
-            cs.shooting = true;
-            nb.AddFitness (-Time.deltaTime);
-        } else {
-            cs.shooting = false;
-            nb.AddFitness (Time.deltaTime);
-        }
+        cs.shooting = output[0, 2] > 0.5;
+        nb.AddFitness (time);
     }
 
     public int numberOfRaycast = 12;
@@ -51,12 +47,12 @@ public class ShipPlayer : BotHandler {
             var direction = Quaternion.AngleAxis (angle, Vector3.forward) * Vector3.right;
             direction = direction.normalized;
 
-            var ray = Physics2D.Raycast (transform.position, direction, 999999, layerMaskForRaycast);
-            var length = ray.collider != null ? ray.distance / 999999 : 1;
+            var ray = Physics2D.Raycast (transform.position, direction, 99, layerMaskForRaycast);
+            var length = ray.collider != null ? ray.distance : 99;
 
             inputs[0, i] = length;
 
-            Debug.DrawRay (transform.position, direction * length * 999999, Color.green);
+            Debug.DrawRay (transform.position, direction * length, Color.green);
         }
         return inputs;
     }

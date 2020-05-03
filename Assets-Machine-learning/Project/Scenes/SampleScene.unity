@@ -121,6 +121,80 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &36084739
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2021973683890524017, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_Name
+      value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524017, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021973683890524027, guid: 49f497849f577ef408fdbede876db0f5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49f497849f577ef408fdbede876db0f5, type: 3}
 --- !u!1 &123039883
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +336,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420030}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -295,13 +370,13 @@ MonoBehaviour:
   numberOfGenerationsToSave: 0
   force: 0
   activationFunction: 0
-  neuronsPerLayer: 180000003200000003000000
+  neuronsPerLayer: d002000032000000140000000a00000003000000
   seed: 0
-  mutationRate: 0.1
-  maxPerturbation: 0.3
-  elitism: 1
-  newIndividuals: 3
-  individualsPerGeneration: 8
+  mutationRate: 0.5
+  maxPerturbation: 1
+  elitism: 5
+  newIndividuals: 5
+  individualsPerGeneration: 20
   prefab: {fileID: 2021973683890524024, guid: 49f497849f577ef408fdbede876db0f5, type: 3}
   generation: 0
   maxFitness: 0
@@ -366,6 +441,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6dd30efc7522d4ab5e334bce05573a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeMult: 5
 --- !u!1 &761310256
 GameObject:
   m_ObjectHideFlags: 0
