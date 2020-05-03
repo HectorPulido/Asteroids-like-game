@@ -8,5 +8,8 @@ https://www.youtube.com/c/HectorAndresPulidoPalmar <br/>
 And his Twitch Channel<br/>
 [https://www.twitch.tv/hector_pulido_](https://www.twitch.tv/hector_pulido_)<br/>
 
+## Machine learning
+![Banner](img/img_ml.gif)
+
 ## HOW TO USE
 Copy the asset folder content in the asset folder of an empty unity project
