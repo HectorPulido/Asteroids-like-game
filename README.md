@@ -9,7 +9,10 @@ And his Twitch Channel<br/>
 [https://www.twitch.tv/hector_pulido_](https://www.twitch.tv/hector_pulido_)<br/>
 
 ## Machine learning
-![Banner](img/img_ml.gif)
+![Banner](img/img_ml.gif)<br/>
+This project uses the "Evolutionary Neural Networks on Unity For bots" repository<br/>
+https://github.com/HectorPulido/Evolutionary-Neural-Networks-on-unity-for-bots
+
 
 ## HOW TO USE
 Copy the asset folder content in the asset folder of an empty unity project
