@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float acceleration;
     public float maxSpeed;
     public float inertia;
@@ -44,7 +44,8 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     private void FixedUpdate () {
-        rb.AddForce (transform.up * acceleration * vertical);
+        var forwardMotor = Mathf.Clamp (vertical, 0f, 1f);
+        rb.AddForce (transform.up * acceleration * forwardMotor);
         if (rb.velocity.magnitude > maxSpeed) {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }

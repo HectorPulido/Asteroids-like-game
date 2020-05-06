@@ -35,6 +35,7 @@ public class Asteroid : MonoBehaviour {
                     Quaternion.identity
                 );
             }
+            ShipPlayer.singleton.AddFitness();
         }
         if (col.CompareTag ("Player")) {
             var asteroids = FindObjectsOfType<Asteroid>();
