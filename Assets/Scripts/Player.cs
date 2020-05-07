@@ -8,34 +8,32 @@ public class Player : MonoBehaviour {
     public float maxSpeed;
     public float inertia;
     public float angularSpeed;
+    public float shootRate = 0.5f;
     public GameObject bulletPrefab;
     public Transform bulletSpawner;
 
-    // Start is called before the first frame update
+    private float vertical;
+    private float horizontal;
+    private bool shooting;
+    private bool canShoot = true;
+
     private void Start () {
         rb = GetComponent<Rigidbody2D> ();
         rb.drag = inertia;
     }
 
-    float vertical;
-    float horizontal;
-
     private void Update () {
         vertical = InputManager.Vertical;
         horizontal = InputManager.Horizontal;
+        shooting = InputManager.Fire;
 
         Rotate ();
         Shoot ();
     }
 
     private void Shoot () {
-        if (InputManager.FireDown) {
-            var bullet = Instantiate (
-                bulletPrefab,
-                bulletSpawner.position,
-                bulletSpawner.rotation
-            );
-            Destroy (bullet, 5);
+        if (shooting && canShoot) {
+            StartCoroutine (FireRate ());
         }
     }
 
@@ -46,9 +44,9 @@ public class Player : MonoBehaviour {
         transform.Rotate (0, 0, -angularSpeed * horizontal * Time.deltaTime);
     }
 
-    // Update is called once per frame
     private void FixedUpdate () {
-        rb.AddForce (transform.up * acceleration * vertical);
+        var forwardMotor = Mathf.Clamp (vertical, 0f, 1f);
+        rb.AddForce (transform.up * acceleration * forwardMotor);
         if (rb.velocity.magnitude > maxSpeed) {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
@@ -57,5 +55,17 @@ public class Player : MonoBehaviour {
     public void Lose () {
         rb.velocity = Vector3.zero;
         transform.position = Vector3.zero;
+    }
+
+    private IEnumerator FireRate () {
+        canShoot = false;
+        var bullet = Instantiate (
+            bulletPrefab,
+            bulletSpawner.position,
+            bulletSpawner.rotation
+        );
+        Destroy (bullet, 5);
+        yield return new WaitForSeconds (shootRate);
+        canShoot = true;
     }
 }
