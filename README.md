@@ -8,6 +8,11 @@ https://www.youtube.com/c/HectorAndresPulidoPalmar <br/>
 And his Twitch Channel<br/>
 [https://www.twitch.tv/hector_pulido_](https://www.twitch.tv/hector_pulido_)<br/>
 
+## Multiplayer
+![Banner](img/img_multiplayer.gif)<br/>
+This is a Mirror based multiplayer version of Asteroid </br>
+https://github.com/vis2k/Mirror
+
 ## Machine learning
 ![Banner](img/img_ml.gif)<br/>
 This project uses the "Evolutionary Neural Networks on Unity For bots" repository<br/>
