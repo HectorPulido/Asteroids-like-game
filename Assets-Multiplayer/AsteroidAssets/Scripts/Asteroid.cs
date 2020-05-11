@@ -25,8 +25,14 @@ public class Asteroid : NetworkBehaviour {
         rb.angularVelocity = Random.Range (-50f, 50f);
     }
 
+    bool isDestroying = false;
+
     [ServerCallback]
     private void OnTriggerEnter2D (Collider2D col) {
+        if(isDestroying)
+            return;
+        isDestroying = true;
+
         if (col.CompareTag ("Bullet")) {
             Destroy (gameObject);
             Destroy (col.gameObject);

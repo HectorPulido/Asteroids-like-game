@@ -11,7 +11,8 @@ public class Player : NetworkBehaviour {
     public float angularSpeed;
     public float shootRate = 0.5f;
     public GameObject bulletPrefab;
-    public Transform bulletSpawner;
+
+    public float offsetBullet;
 
     private float vertical;
     private float horizontal;
@@ -64,27 +65,32 @@ public class Player : NetworkBehaviour {
         }
     }
 
-    [ClientRpc]
-    void RpcLose () {
+    void Lose () {
+        var nsp = FindObjectsOfType<NetworkStartPosition> ();
+        var pos = nsp[Random.Range (0, nsp.Length)].transform.position;
+
         rb.velocity = Vector3.zero;
-        transform.position = Vector3.zero;
+        transform.position = pos;
     }
 
-    [ServerCallback]
     private void OnTriggerEnter2D (Collider2D col) {
+        if (!isLocalPlayer) {
+            return;
+        }
         if (col.CompareTag ("Bullet") || col.CompareTag ("Obstacle")) {
             Destroy (col.gameObject);
-            RpcLose ();
+            Lose ();
         }
     }
 
     [ServerCallback]
     private IEnumerator FireRate () {
         canShoot = false;
+        var pos = transform.up * offsetBullet + transform.position;
         var bullet = Instantiate (
             bulletPrefab,
-            bulletSpawner.position,
-            bulletSpawner.rotation
+            pos, 
+            transform.rotation
         );
 
         NetworkServer.Spawn (bullet);

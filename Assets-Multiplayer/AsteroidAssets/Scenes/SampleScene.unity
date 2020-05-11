@@ -362,7 +362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  timeToSpawn: 5
+  asteroidsLimit: 10
+  timeToSpawn: 3
   prefabs:
   - {fileID: 7014742745544944153, guid: 8457e81bee3ee9f4a822e9cfdbb4b495, type: 3}
   - {fileID: 2487541142767330520, guid: 9fa359d38269bc94ca2d7f4c112bc8df, type: 3}
@@ -459,7 +460,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1275044104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7424c1070fad4ba2a7a96b02fbeb4bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f039183eda8945448b822a77e2a9d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnClientConnected:
@@ -486,12 +487,11 @@ MonoBehaviour:
   OnServerDisconnected:
     m_PersistentCalls:
       m_Calls: []
-  port: 7777
+  port: 7778
+  Secure: 0
+  CertificatePath: 
+  CertificatePassword: 
   NoDelay: 1
-  serverMaxMessageSize: 16384
-  serverMaxReceivesPerTick: 10000
-  clientMaxMessageSize: 16384
-  clientMaxReceivesPerTick: 1000
 --- !u!114 &1275044106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 1275044105}
-  networkAddress: localhost
+  networkAddress: 
   maxConnections: 4
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
@@ -549,12 +549,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1275044104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bce3c8138b7b48448dbd21d42789bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showGUI: 1
-  offsetX: 0
-  offsetY: 0
+  ip: asteroids-unity.herokuapp.com
+  port: 80
 --- !u!1 &1360356170
 GameObject:
   m_ObjectHideFlags: 0

@@ -165,6 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af02b4a74eb2e4845a4329775b512065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  isForClient: 0
   borders:
     superiorBorder: 5.5
     inferiorBorder: -5.5
