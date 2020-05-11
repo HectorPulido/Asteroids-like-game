@@ -1,5 +1,5 @@
 # Asteroids like game
-<b>This is an Asteroids like made with Unity and C#<br></br>
+<b>This is an Asteroids like made with Unity and C#<b></br>
 ![Banner](img/img.gif)</br>
 
 ## TODO
