@@ -1,6 +1,9 @@
 # Asteroids like game
-<b>This is an Asteroids like made with Unity and C#</b>
-![Banner](img/img.gif)
+<b>This is an Asteroids like made with Unity and C#</br>
+![Banner](img/img.gif)</br>
+
+## TODO
+* Explaination for online</br>
 
 ## WHY (MOTIVATION)
 This tutorial was made for <b>Hector Pulido</b> for his youtube channel <br/>
@@ -12,6 +15,9 @@ And his Twitch Channel<br/>
 ![Banner](img/img_multiplayer.gif)<br/>
 This is a Mirror based multiplayer version of Asteroid </br>
 https://github.com/vis2k/Mirror
+### To play
+Enter to this url: http://asteroids-unity-web.herokuapp.com/index.html <br>
+Make sure you entered by http not https
 
 ## Machine learning
 ![Banner](img/img_ml.gif)<br/>
