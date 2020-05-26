@@ -6,7 +6,7 @@
 * Explaination for online</br>
 
 ## WHY (MOTIVATION)
-[![Youtube video](https://img.youtube.com/vi/hA2QJfeh0C8/0.jpg)](https://www.youtube.com/watch?v=hA2QJfeh0C8)
+[![Youtube video](https://img.youtube.com/vi/hA2QJfeh0C8/0.jpg)](https://www.youtube.com/watch?v=hA2QJfeh0C8)<br/>
 This tutorial was made for <b>Hector Pulido</b> for his youtube channel <br/>
 https://www.youtube.com/c/HectorAndresPulidoPalmar <br/>
 And his Twitch Channel<br/>
