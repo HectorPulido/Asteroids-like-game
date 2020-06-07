@@ -1,5 +1,5 @@
 # Asteroids like game
-<b>This is an Asteroids like made with Unity and C#<b> <br/>
+<b>This is an Asteroids like made with Unity and C#</b> <br/>
 ![Banner](img/img.gif) <br/>
 
 ## TODO
@@ -16,6 +16,7 @@ And his Twitch Channel<br/>
 ![Banner](img/img_multiplayer.gif)<br/>
 This is a Mirror based multiplayer version of Asteroid </br>
 https://github.com/vis2k/Mirror
+
 ### To play
 Enter to this url: http://asteroids-unity-web.herokuapp.com/index.html <br>
 Make sure you entered by http not https
@@ -25,6 +26,8 @@ Make sure you entered by http not https
 This project uses the "Evolutionary Neural Networks on Unity For bots" repository<br/>
 https://github.com/HectorPulido/Evolutionary-Neural-Networks-on-unity-for-bots
 
-
 ## HOW TO USE
 Copy the asset folder content in the asset folder of an empty unity project
+
+## Licence
+This Repo contains mirror networking (https://mirror-networking.com/), everything else is Mit licenced
