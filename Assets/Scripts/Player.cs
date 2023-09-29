@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private float horizontal;
     private bool shooting;
     private bool canShoot = true;
+    
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
         vertical = InputManager.Vertical;
         horizontal = InputManager.Horizontal;
         shooting = InputManager.Fire;
-
+        
         Rotate();
         Shoot();
     }
@@ -53,13 +54,15 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var forwardMotor = Mathf.Clamp(vertical, 0f, 1f);
+        var forwardMotor = Mathf.Clamp(vertical, -1f, 1f);
         rb.AddForce(transform.up * acceleration * forwardMotor);
         if (rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
+
     }
+
 
     public void Lose()
     {
