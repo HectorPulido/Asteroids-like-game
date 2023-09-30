@@ -12,12 +12,15 @@ public class Player : MonoBehaviour
     public float shootRate = 0.5f;
     public GameObject bulletPrefab;
     public Transform bulletSpawner;
-
+    public float drag;
     private float vertical;
     private float horizontal;
     private bool shooting;
     private bool canShoot = true;
-    
+
+    public float offsetBullet;
+    public GameObject bullet;
+
 
     private void Start()
     {
@@ -39,7 +42,9 @@ public class Player : MonoBehaviour
     {
         if (shooting && canShoot)
         {
-            StartCoroutine(FireRate());
+            StartCoroutine (FireRate());
+
+            
         }
     }
 
@@ -54,7 +59,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var forwardMotor = Mathf.Clamp(vertical, -1f, 1f);
+        var forwardMotor = Mathf.Clamp(vertical, 0f, 1f);
         rb.AddForce(transform.up * acceleration * forwardMotor);
         if (rb.velocity.magnitude > maxSpeed)
         {
@@ -72,12 +77,14 @@ public class Player : MonoBehaviour
 
     private IEnumerator FireRate()
     {
+        
         canShoot = false;
-        var bullet = Instantiate(
-            bulletPrefab,
-            bulletSpawner.position,
-            bulletSpawner.rotation
-        );
+        var pos = transform.up * offsetBullet + transform.position;
+
+        var bullet = Instantiate
+            (bulletPrefab, pos, transform.rotation);
+
+
         Destroy(bullet, 5);
         yield return new WaitForSeconds(shootRate);
         canShoot = true;
