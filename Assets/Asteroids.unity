@@ -274,12 +274,12 @@ MonoBehaviour:
   maxSpeed: 10
   inertia: 0
   angularSpeed: 180
-  shootRate: 0.5
+  shootRate: 0.2
   bulletPrefab: {fileID: 6921769082560215494, guid: 2a2f89e77c2a2e240987aa8f09e6aabf, type: 3}
   bulletSpawner: {fileID: 0}
   drag: 1
   offsetBullet: 0.5
-  bullet: {fileID: 978550814}
+  bullet: {fileID: 0}
 --- !u!114 &410106057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,11 +381,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &978550814 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6921769082560215494, guid: 2a2f89e77c2a2e240987aa8f09e6aabf, type: 3}
-  m_PrefabInstance: {fileID: 6921769081852656088}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1189182111
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +650,10 @@ PrefabInstance:
     - target: {fileID: 6921769082560215494, guid: 2a2f89e77c2a2e240987aa8f09e6aabf, type: 3}
       propertyPath: m_Name
       value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921769082560215495, guid: 2a2f89e77c2a2e240987aa8f09e6aabf, type: 3}
+      propertyPath: speed
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6921769082560215546, guid: 2a2f89e77c2a2e240987aa8f09e6aabf, type: 3}
       propertyPath: m_RootOrder
