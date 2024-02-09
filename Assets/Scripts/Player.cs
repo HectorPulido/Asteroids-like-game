@@ -1,8 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
     private Rigidbody2D rb;
     public float acceleration;
     public float maxSpeed;
@@ -11,61 +12,81 @@ public class Player : MonoBehaviour {
     public float shootRate = 0.5f;
     public GameObject bulletPrefab;
     public Transform bulletSpawner;
-
+    public float drag;
     private float vertical;
     private float horizontal;
     private bool shooting;
     private bool canShoot = true;
 
-    private void Start () {
-        rb = GetComponent<Rigidbody2D> ();
+    public float offsetBullet;
+    public GameObject bullet;
+
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
         rb.drag = inertia;
     }
 
-    private void Update () {
+    private void Update()
+    {
         vertical = InputManager.Vertical;
         horizontal = InputManager.Horizontal;
         shooting = InputManager.Fire;
-
-        Rotate ();
-        Shoot ();
+        
+        Rotate();
+        Shoot();
     }
 
-    private void Shoot () {
-        if (shooting && canShoot) {
-            StartCoroutine (FireRate ());
+    private void Shoot()
+    {
+        if (shooting && canShoot)
+        {
+            StartCoroutine (FireRate());
+
+            
         }
     }
 
-    private void Rotate () {
-        if (horizontal == 0) {
+    private void Rotate()
+    {
+        if (horizontal == 0)
+        {
             return;
         }
-        transform.Rotate (0, 0, -angularSpeed * horizontal * Time.deltaTime);
+        transform.Rotate(0, 0, -angularSpeed * horizontal * Time.deltaTime);
     }
 
-    private void FixedUpdate () {
-        var forwardMotor = Mathf.Clamp (vertical, 0f, 1f);
-        rb.AddForce (transform.up * acceleration * forwardMotor);
-        if (rb.velocity.magnitude > maxSpeed) {
+    private void FixedUpdate()
+    {
+        var forwardMotor = Mathf.Clamp(vertical, 0f, 1f);
+        rb.AddForce(transform.up * acceleration * forwardMotor);
+        if (rb.velocity.magnitude > maxSpeed)
+        {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
+
     }
 
-    public void Lose () {
+
+    public void Lose()
+    {
         rb.velocity = Vector3.zero;
         transform.position = Vector3.zero;
     }
 
-    private IEnumerator FireRate () {
+    private IEnumerator FireRate()
+    {
+        
         canShoot = false;
-        var bullet = Instantiate (
-            bulletPrefab,
-            bulletSpawner.position,
-            bulletSpawner.rotation
-        );
-        Destroy (bullet, 5);
-        yield return new WaitForSeconds (shootRate);
+        var pos = transform.up * offsetBullet + transform.position;
+
+        var bullet = Instantiate
+            (bulletPrefab, pos, transform.rotation);
+
+
+        Destroy(bullet, 5);
+        yield return new WaitForSeconds(shootRate);
         canShoot = true;
     }
 }
