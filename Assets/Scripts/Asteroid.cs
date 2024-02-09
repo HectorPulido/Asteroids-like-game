@@ -7,7 +7,7 @@ public class Asteroid : MonoBehaviour
 
     private Rigidbody2D rb;
 
-public float speed;
+    public float speed;
 
 
 
